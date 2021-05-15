@@ -1,0 +1,13 @@
+$bgColor: blue;
+$color: red;
+
+.Btn {
+  background-color: $bgColor;
+  padding: 1rem;
+  color: white;
+  border: none;
+}
+
+.P {
+  color: $color;
+}
