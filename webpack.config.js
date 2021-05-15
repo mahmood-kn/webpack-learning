@@ -48,6 +48,12 @@ module.exports = {
         path.join(process.cwd(), 'build/**/*'),
       ],
     }),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Hello Webpack',
+      filename: 'subfolder/custom.html',
+      meta: {
+        description: 'Some Description',
+      },
+    }),
   ],
 };
