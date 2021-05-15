@@ -1,3 +1,4 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -39,6 +40,12 @@ module.exports = {
     new TerserPlugin(),
     new MiniCssExtractPlugin({
       filename: 'style[contenthash].css',
+    }),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        '**/*',
+        path.join(process.cwd(), 'build/**/*'),
+      ],
     }),
   ],
 };
