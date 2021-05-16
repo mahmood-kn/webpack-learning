@@ -2,9 +2,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    'hello-world': './src/hello-world.js',
+    laptop: './src/laptop.js',
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
   },
   mode: 'development',
@@ -53,9 +56,18 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
+      filename: 'hello-world.html',
+      chunks: ['hello-world'], // ? refer to entry in top
       title: 'Hello Webpack',
-      template: 'src/index.hbs',
+      template: 'src/pageTemplate.hbs',
       description: 'Some Description',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'laptop.html',
+      title: 'laptop',
+      chunks: ['laptop'], //? refer to entry in top
+      template: 'src/pageTemplate.hbs',
+      description: 'Laptop Stickers',
     }),
   ],
 };

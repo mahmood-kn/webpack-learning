@@ -62,15 +62,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'hello-world.html',
-      title: 'Hello Webpack', //? refer to entry in top
-      chunks: ['hello-world', '486'], //? library name is 486 and it will included without adding it in chuncks but in the course the teacher added manually
+      title: 'Hello Webpack',
+      chunks: ['hello-world', '486'], //? refer to entry in top //? library name is 486 and it will included without adding it in chuncks but in the course the teacher added manually
       template: 'src/pageTemplate.hbs',
       description: 'Hello webpack',
     }),
     new HtmlWebpackPlugin({
       filename: 'laptop.html',
-      title: 'laptop', //? refer to entry in top
-      chunks: ['laptop', '486'], //? library name is 486 and it will included without adding it in chuncks but in the course the teacher added manually
+      title: 'laptop',
+      chunks: ['laptop', '486'], //? refer to entry in top //? library name is 486 and it will included without adding it in chuncks but in the course the teacher added manually
       template: 'src/pageTemplate.hbs',
       description: 'Laptop Stickers',
     }),
