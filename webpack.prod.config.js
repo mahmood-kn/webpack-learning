@@ -54,9 +54,18 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
+      filename: 'hello-world.html',
+      chunks: ['hello-world'], //? refer to entry in top
       title: 'Hello Webpack',
-      template: 'src/index.hbs',
-      description: 'Some Description',
+      template: 'src/pageTemplate.hbs',
+      description: 'Hello webpack',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'lapto.html',
+      title: 'laptop', //? refer to entry in top
+      chunks: ['laptop'],
+      template: 'src/pageTemplate.hbs',
+      description: 'Laptop Stickers',
     }),
   ],
 };
