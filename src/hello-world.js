@@ -1,4 +1,4 @@
-import HelloWorldBtn from './components/HelloWorldBtn';
+import HelloWorldBtn from './components/HelloWorldBtn/HelloWorldBtn';
 // import imageLoader from './imageLoader';
 
 const helloWorld = new HelloWorldBtn();
