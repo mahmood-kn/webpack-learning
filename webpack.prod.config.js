@@ -12,6 +12,11 @@ module.exports = {
     path: path.resolve(__dirname, './build'),
   },
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   module: {
     rules: [
       {
@@ -55,15 +60,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'hello-world.html',
-      chunks: ['hello-world'], //? refer to entry in top
-      title: 'Hello Webpack',
+      title: 'Hello Webpack', //? refer to entry in top
+      chunks: ['hello-world', '486'], //? library name is 486 and it will included without adding it in chuncks but in the course the teacher added manually
       template: 'src/pageTemplate.hbs',
       description: 'Hello webpack',
     }),
     new HtmlWebpackPlugin({
       filename: 'lapto.html',
       title: 'laptop', //? refer to entry in top
-      chunks: ['laptop'],
+      chunks: ['laptop', '486'], //? library name is 486 and it will included without adding it in chuncks but in the course the teacher added manually
       template: 'src/pageTemplate.hbs',
       description: 'Laptop Stickers',
     }),

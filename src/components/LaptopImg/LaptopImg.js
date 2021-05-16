@@ -1,12 +1,12 @@
-import img from './image.jpg';
+import laptopImg from './image.jpg';
 import './LaptopImg.scss';
 class LaptopImg {
   render() {
     const img = document.createElement('img');
     const body = document.querySelector('body');
-    img.src = img;
+    img.src = laptopImg;
     img.alt = 'laptop';
-    img.classList.add = 'LaptopImg';
+    img.classList.add('LaptopImg');
     body.appendChild(img);
   }
 }
