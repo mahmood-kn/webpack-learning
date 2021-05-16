@@ -1,19 +1,22 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: '[name].bundle.js',
+        filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
-    mode: 'development',
-    devServer: {
-        contentBase: path.resolve(__dirname, './dist'),
-        index: 'index.html',
-        port: 9000
+    mode: 'production',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 10000,
+            automaticNameDelimiter: '_'
+        }
     },
     module: {
         rules: [
@@ -26,13 +29,13 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader', 'css-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                    'style-loader', 'css-loader', 'sass-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
                 ]
             },
             {
@@ -55,6 +58,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'styles.[contenthash].css'
+        }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'Hello world',
