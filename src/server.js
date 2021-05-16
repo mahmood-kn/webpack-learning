@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
   res.send(contentFromHtmlFile);
 });
 
+app.use('/static', express.static(path.resolve(__dirname, '../dist')));
+
 app.listen(3000, () => {
   console.log('Application is running on http://localhost:3000');
 });
