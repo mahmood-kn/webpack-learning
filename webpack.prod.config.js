@@ -55,10 +55,7 @@ module.exports = {
       filename: '[name].[contenthash].css',
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [
-        '**/*',
-        path.join(process.cwd(), 'build/**/*'),
-      ],
+      cleanOnceBeforeBuildPatterns: ['**/*'],
     }),
     new HtmlWebpackPlugin({
       filename: 'hello-world.html',
