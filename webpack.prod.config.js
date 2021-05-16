@@ -15,6 +15,8 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      minSize: 10000, //? minSize used when a library is small and we want to be chanked
+      automaticNameDelimiter: '_',
     },
   },
   module: {
@@ -66,7 +68,7 @@ module.exports = {
       description: 'Hello webpack',
     }),
     new HtmlWebpackPlugin({
-      filename: 'lapto.html',
+      filename: 'laptop.html',
       title: 'laptop', //? refer to entry in top
       chunks: ['laptop', '486'], //? library name is 486 and it will included without adding it in chuncks but in the course the teacher added manually
       template: 'src/pageTemplate.hbs',
